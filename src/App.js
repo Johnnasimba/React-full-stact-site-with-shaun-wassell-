@@ -8,12 +8,14 @@ import HomePage from './pages/homePage';
 import AboutPage from './pages/AboutPage';
 import ArticlePage from './pages/ArticlePage';
 import ArticlesList from './pages/ArticlesList';
+import NavBar from './NavBar'
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className="App">
+          <NavBar />
           <div id="page-body">
           <Route exact path="/" component={HomePage} />
           <Route exact path="/about" component={AboutPage} />
@@ -27,3 +29,4 @@ class App extends Component {
 }
 
 export default App;
+ 
