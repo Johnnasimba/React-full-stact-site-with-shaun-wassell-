@@ -3,6 +3,7 @@ import articleContent from './article-content';
 import ArticlesList from '../components/ArticlesList'
 import NotFoundPage from './notFoundPage';
 import CommentsList from '../components/commentsList';
+import UpvotesSection from '../components/upvotesSection';
 
 
 const ArticlePage = ({ match }) => {
@@ -31,8 +32,8 @@ const ArticlePage = ({ match }) => {
      return ( 
          <div>
              <h1>{article.title} </h1>
-             <p>This post have been upvoted {articleInfo.upvotes} times</p>
-             {article.content.map((paragraph, key) => (
+             <UpvotesSection articleName={name} upvotes = {articleInfo.upvotes} setArticleInfo={setArticleInfo} />
+              {article.content.map((paragraph, key) => (
                  <p key={key}> {paragraph} </p>
              ))}
              <CommentsList comments={articleInfo.comments}/>
