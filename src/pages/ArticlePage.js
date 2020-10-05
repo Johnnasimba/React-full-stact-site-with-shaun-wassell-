@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import articleContent from './article-content';
 import ArticlesList from '../components/ArticlesList'
 import NotFoundPage from './notFoundPage';
+import CommentsList from '../components/commentsList';
 
 
 const ArticlePage = ({ match }) => {
@@ -18,12 +19,10 @@ const ArticlePage = ({ match }) => {
             const body = await result.json();
             console.log(body);
             setArticleInfo(body);
-
-
         }
 
         fetchData()
-        setArticleInfo({upvotes: Math.ceil(Math.random() * 9)})
+        //setArticleInfo({upvotes: Math.ceil(Math.random() * 9)})
     }, [name])
     
     
@@ -36,6 +35,7 @@ const ArticlePage = ({ match }) => {
              {article.content.map((paragraph, key) => (
                  <p key={key}> {paragraph} </p>
              ))}
+             <CommentsList comments={articleInfo.comments}/>
              <h3>Other Articles: </h3>
              <ArticlesList articles={otherArticles}/>
          </div>
